@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import { useState } from "react";
 import { useCart } from "../../components/Shared/CartContext";
 
 const products = [
@@ -7,7 +8,7 @@ const products = [
     id: 1,
     name: "Dreamscape (Print)",
     price: 40,
-    image: "/file.svg",
+  image: "/shop/tote.png",
     type: "art",
     description: "High-quality print of 'Dreamscape'. Size: 30x40cm."
   },
@@ -15,7 +16,7 @@ const products = [
     id: 2,
     name: "Urban Flow (Print)",
     price: 35,
-    image: "/window.svg",
+  image: "/shop/tote.png",
     type: "art",
     description: "Print of 'Urban Flow'. Size: 30x40cm."
   },
@@ -23,7 +24,7 @@ const products = [
     id: 3,
     name: "Night Lights (Print)",
     price: 38,
-    image: "/vercel.svg",
+  image: "/shop/tote.png",
     type: "art",
     description: "Print of 'Night Lights'. Size: 30x40cm."
   },
@@ -31,7 +32,7 @@ const products = [
     id: 4,
     name: "Tote Bag - Dreamscape",
     price: 22,
-    image: "/globe.svg",
+  image: "/shop/tote.png",
     type: "tote",
     description: "Eco-friendly tote bag with 'Dreamscape' print."
   },
@@ -39,7 +40,7 @@ const products = [
     id: 5,
     name: "Tote Bag - Urban Flow",
     price: 22,
-    image: "/globe.svg",
+  image: "/shop/tote.png",
     type: "tote",
     description: "Eco-friendly tote bag with 'Urban Flow' print."
   },
@@ -59,6 +60,7 @@ type Product = {
 export default function ShopPage() {
   const { cart, addToCart, removeFromCart, changeQty, clearCart } = useCart();
   const total = cart.reduce((sum: number, item: Product) => sum + item.price * (item.qty || 1), 0);
+  const [expandedImg, setExpandedImg] = useState<string|null>(null);
   return (
     <main
       style={{
@@ -99,7 +101,53 @@ export default function ShopPage() {
               alignItems: 'center',
               position: 'relative',
             }}>
-              <Image src={product.image} alt={product.name} width={140} height={140} style={{ borderRadius: 12, marginBottom: 12, background: '#fafafa' }} />
+              <div style={{ cursor: 'pointer', marginBottom: 12 }} onClick={() => setExpandedImg(product.image)}>
+                <Image src={product.image} alt={product.name} width={140} height={140} style={{ borderRadius: 12, background: '#fafafa' }} />
+              </div>
+      {/* Image Modal */}
+      {expandedImg && (
+        <div
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100vw',
+            height: '100vh',
+            background: 'rgba(0,0,0,0.85)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            zIndex: 1000,
+          }}
+          onClick={() => setExpandedImg(null)}
+        >
+          <div style={{ position: 'relative', maxWidth: '90vw', maxHeight: '90vh' }}>
+            <Image src={expandedImg} alt="Product enlarged" width={700} height={700} style={{ borderRadius: 16, objectFit: 'contain', background: '#fafafa', maxWidth: '90vw', maxHeight: '80vh' }} />
+            <button
+              onClick={e => { e.stopPropagation(); setExpandedImg(null); }}
+              style={{
+                position: 'absolute',
+                top: 8,
+                right: 8,
+                background: 'rgba(0,0,0,0.6)',
+                color: '#fff',
+                border: 'none',
+                borderRadius: '50%',
+                width: 36,
+                height: 36,
+                fontSize: 22,
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+              aria-label="Close expanded image"
+            >
+              &times;
+            </button>
+          </div>
+        </div>
+      )}
               <div style={{ fontWeight: 400, fontSize: 18, color: '#222', marginBottom: 4 }}>{product.name}</div>
               <div style={{ color: '#888', fontSize: 14, marginBottom: 8 }}>{product.description}</div>
               <div style={{ color: '#222', fontWeight: 600, fontSize: 18, marginBottom: 12 }}>€{product.price}</div>
