@@ -1,20 +1,9 @@
 import Image from "next/image";
+import MainLayout from "../../components/Shared/MainLayout";
 
 export default function AboutPage() {
   return (
-    <main
-      style={{
-        minHeight: '80vh',
-        maxWidth: 800,
-        margin: '0 auto',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'flex-start',
-        padding: '4rem 1.5rem 2rem 1.5rem',
-        background: 'transparent',
-      }}
-    >
+    <MainLayout>
       <div style={{
         background: 'linear-gradient(120deg, #d1fae5 0%, #f8fafc 100%)',
         borderRadius: '50%',
@@ -48,6 +37,6 @@ export default function AboutPage() {
           </p>
         </div>
       </div>
-    </main>
+    </MainLayout>
   );
 }

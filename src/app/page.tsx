@@ -1,21 +1,11 @@
+
+import MainLayout from "../components/Shared/MainLayout";
 import Hero from "../components/Home/Hero";
 import Features from "../components/Home/Features";
 
 export default function Home() {
   return (
-    <main
-      style={{
-        minHeight: '100vh',
-        maxWidth: 900,
-        margin: '0 auto',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'flex-start',
-        padding: '4rem 1.5rem 2rem 1.5rem',
-        background: 'linear-gradient(120deg, #f8fafc 0%, #d1fae5 100%)',
-      }}
-    >
+    <MainLayout>
       <Hero />
       <Features />
       <section style={{ maxWidth: 600, textAlign: 'center', margin: '0 auto', color: '#222' }}>
@@ -24,6 +14,6 @@ export default function Home() {
           Afonso is a passionate artist blending tradition and modernity. <a href="/about" style={{ color: '#111', fontWeight: 500, textDecoration: 'underline' }}>Read more</a>
         </p>
       </section>
-    </main>
+    </MainLayout>
   );
 }
