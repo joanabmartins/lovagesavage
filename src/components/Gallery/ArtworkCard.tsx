@@ -1,3 +1,4 @@
+"use client";
 // Card for a single artwork in the gallery
 import Image from "next/image";
 

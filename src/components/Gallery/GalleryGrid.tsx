@@ -1,3 +1,4 @@
+"use client";
 // Grid for displaying multiple artworks
 import ArtworkCard from "./ArtworkCard";
 

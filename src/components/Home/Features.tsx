@@ -1,3 +1,4 @@
+"use client";
 // Features section for the Home page
 import Image from "next/image";
 

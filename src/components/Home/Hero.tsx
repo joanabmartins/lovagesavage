@@ -1,3 +1,4 @@
+"use client";
 // Hero section for the Home page
 export default function Hero() {
   return (

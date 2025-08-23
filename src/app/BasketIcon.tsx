@@ -1,4 +1,4 @@
-import { useCart } from "../components/CartContext";
+import { useCart } from "../components/Shared/CartContext";
 
 export default function BasketIcon({ onClick }: { onClick: () => void }) {
   const { cart } = useCart();
