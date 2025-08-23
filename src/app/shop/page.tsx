@@ -6,43 +6,43 @@ import { useCart } from "../../components/Shared/CartContext";
 const products = [
   {
     id: 1,
-    name: "Dreamscape (Print)",
-    price: 40,
+    name: "InsertName (Print)",
+    price: 50,
   image: "/shop/tote.png",
     type: "art",
-  description: "High-quality print of &apos;Dreamscape&apos;. Size: 30x40cm."
+  description: "High-quality print of 'InsertName'. Size: 30x40cm."
   },
   {
     id: 2,
-    name: "Urban Flow (Print)",
-    price: 35,
+    name: "InsertName(Print)",
+    price: 50,
   image: "/shop/tote.png",
     type: "art",
-  description: "Print of &apos;Urban Flow&apos;. Size: 30x40cm."
+  description: "Print of 'InsertName'. Size: 30x40cm."
   },
   {
     id: 3,
-    name: "Night Lights (Print)",
-    price: 38,
+    name: "InsertName (Print)",
+    price: 50,
   image: "/shop/tote.png",
     type: "art",
-  description: "Print of &apos;Night Lights&apos;. Size: 30x40cm."
+  description: "Print of 'InsertName'. Size: 30x40cm."
   },
   {
     id: 4,
-    name: "Tote Bag - Dreamscape",
-    price: 22,
+    name: "Tote Bag - InsertName",
+    price: 25,
   image: "/shop/tote.png",
     type: "tote",
-  description: "Eco-friendly tote bag with &apos;Dreamscape&apos; print."
+  description: "Eco-friendly tote bag with 'InsertName' print."
   },
   {
     id: 5,
-    name: "Tote Bag - Urban Flow",
-    price: 22,
+    name: "Tote Bag - InsertName",
+    price: 25,
   image: "/shop/tote.png",
     type: "tote",
-  description: "Eco-friendly tote bag with &apos;Urban Flow&apos; print."
+  description: "Eco-friendly tote bag with 'InsertName' print."
   },
 ];
 
