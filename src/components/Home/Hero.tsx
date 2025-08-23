@@ -4,7 +4,7 @@ export default function Hero() {
   return (
     <section style={{ textAlign: 'center', marginBottom: 64 }}>
       <h1 style={{ fontSize: '2.5rem', fontWeight: 400, letterSpacing: '-1px', color: '#222', marginBottom: 32, lineHeight: 1.1 }}>
-        Welcome to Afonso's Art World
+        Welcome to Afonso&apos;s Art World
       </h1>
       <a href="/shop" style={{
         display: 'inline-block',
