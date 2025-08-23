@@ -4,11 +4,15 @@ import GalleryGrid from "../../components/Gallery/GalleryGrid";
 export default function WorkPage() {
   return (
     <MainLayout>
-      <h1 style={{ fontSize: '2.2rem', fontWeight: 400, color: '#111', marginBottom: 18, letterSpacing: '-1px' }}>Gallery</h1>
-      <p style={{ maxWidth: 600, fontSize: '1.15rem', color: '#444', textAlign: 'center', marginBottom: 40, lineHeight: 1.6 }}>
-        Explore a curated selection of Afonso's works, each piece reflecting a unique blend of color, movement, and emotion.
-      </p>
-      <GalleryGrid />
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
+        <h1 style={{ fontSize: '2.2rem', fontWeight: 400, color: '#111', marginBottom: 18, letterSpacing: '-1px', textAlign: 'center' }}>Gallery</h1>
+        <p style={{ maxWidth: 600, fontSize: '1.15rem', color: '#444', textAlign: 'center', marginBottom: 40, lineHeight: 1.6 }}>
+          Explore a curated selection of Afonso's works, each piece reflecting a unique blend of color, movement, and emotion.
+        </p>
+        <div style={{ width: '100%' }}>
+          <GalleryGrid />
+        </div>
+      </div>
     </MainLayout>
   );
 }

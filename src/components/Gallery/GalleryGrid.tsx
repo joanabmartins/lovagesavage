@@ -2,11 +2,26 @@
 // Grid for displaying multiple artworks
 import ArtworkCard from "./ArtworkCard";
 
-const artworks = [
-  { image: "/file.svg", title: "Dreamscape", medium: "Mixed media" },
-  { image: "/window.svg", title: "Urban Flow", medium: "Ink on paper" },
-  { image: "/vercel.svg", title: "Night Lights", medium: "Digital" },
+
+const artImages = [
+  "confinement.png",
+  "crush.png",
+  "cupido.png",
+  "heartless.png",
+  "madness.png",
+  "monkey.png",
+  "black and white.png",
+  "sisifo.png",
+  "superficialgirl.png",
+  "wonder woman.png",
+  "yellow.png",
 ];
+
+const artworks = artImages.map((filename) => ({
+  image: `/art/${filename}`,
+  title: filename.replace(/\.[^.]+$/, ""),
+  medium: "Mixed media",
+}));
 
 export default function GalleryGrid() {
   return (

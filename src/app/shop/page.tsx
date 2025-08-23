@@ -55,6 +55,7 @@ type Product = {
   qty?: number;
 };
 
+
 export default function ShopPage() {
   const { cart, addToCart, removeFromCart, changeQty, clearCart } = useCart();
   const total = cart.reduce((sum: number, item: Product) => sum + item.price * (item.qty || 1), 0);
@@ -72,55 +73,57 @@ export default function ShopPage() {
         background: 'transparent',
       }}
     >
-      <h1 style={{ fontSize: '2.2rem', fontWeight: 400, color: '#111', marginBottom: 18, letterSpacing: '-1px' }}>Shop</h1>
-      <p style={{ maxWidth: 600, fontSize: '1.15rem', color: '#444', textAlign: 'center', marginBottom: 40, lineHeight: 1.6 }}>
-        Shop for art prints and eco-friendly tote bags featuring Afonso's unique drawings.
-      </p>
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-        gap: 48,
-        alignItems: 'start',
-        width: '100%',
-        marginTop: 8,
-      }}>
-        {products.map((product) => (
-          <div key={product.id} style={{
-            background: product.type === 'art' ? '#d1fae5' : '#f8fafc',
-            borderRadius: 16,
-            padding: 24,
-            minWidth: 220,
-            boxShadow: product.type === 'art' ? '0 2px 8px #10b98122' : '0 2px 8px #10b98111',
-            textAlign: 'center',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            position: 'relative',
-          }}>
-            <Image src={product.image} alt={product.name} width={140} height={140} style={{ borderRadius: 12, marginBottom: 12, background: '#fafafa' }} />
-            <div style={{ fontWeight: 400, fontSize: 18, color: '#222', marginBottom: 4 }}>{product.name}</div>
-            <div style={{ color: '#888', fontSize: 14, marginBottom: 8 }}>{product.description}</div>
-            <div style={{ color: '#10b981', fontWeight: 600, fontSize: 18, marginBottom: 12 }}>€{product.price}</div>
-            <button
-              style={{
-                background: '#10b981',
-                color: '#fff',
-                border: 'none',
-                borderRadius: 24,
-                padding: '0.5rem 1.5rem',
-                fontWeight: 600,
-                fontSize: 16,
-                cursor: 'pointer',
-                boxShadow: '0 2px 8px #10b98122',
-                marginTop: 'auto',
-                transition: 'background 0.2s',
-              }}
-              onClick={() => addToCart(product)}
-            >
-              Add to Basket
-            </button>
-          </div>
-        ))}
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
+        <h1 style={{ fontSize: '2.2rem', fontWeight: 400, color: '#111', marginBottom: 18, letterSpacing: '-1px', textAlign: 'center' }}>Shop</h1>
+        <p style={{ maxWidth: 600, fontSize: '1.15rem', color: '#444', textAlign: 'center', marginBottom: 40, lineHeight: 1.6 }}>
+          Shop for art prints and eco-friendly tote bags featuring Afonso's unique drawings.
+        </p>
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+          gap: 48,
+          alignItems: 'start',
+          width: '100%',
+          marginTop: 8,
+        }}>
+          {products.map((product) => (
+            <div key={product.id} style={{
+              background: '#fff',
+              borderRadius: 16,
+              padding: 28,
+              minWidth: 220,
+              boxShadow: '0 2px 12px #bbb8a9',
+              textAlign: 'center',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              position: 'relative',
+            }}>
+              <Image src={product.image} alt={product.name} width={140} height={140} style={{ borderRadius: 12, marginBottom: 12, background: '#fafafa' }} />
+              <div style={{ fontWeight: 400, fontSize: 18, color: '#222', marginBottom: 4 }}>{product.name}</div>
+              <div style={{ color: '#888', fontSize: 14, marginBottom: 8 }}>{product.description}</div>
+              <div style={{ color: '#222', fontWeight: 600, fontSize: 18, marginBottom: 12 }}>€{product.price}</div>
+              <button
+                style={{
+                  background: '#e0e0db',
+                  color: '#222',
+                  border: 'none',
+                  borderRadius: 24,
+                  padding: '0.5rem 1.5rem',
+                  fontWeight: 600,
+                  fontSize: 16,
+                  cursor: 'pointer',
+                  boxShadow: '0 2px 8px #bbb8a9',
+                  marginTop: 'auto',
+                  transition: 'background 0.2s',
+                }}
+                onClick={() => addToCart(product)}
+              >
+                Add to Basket
+              </button>
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* Basket */}
@@ -128,17 +131,20 @@ export default function ShopPage() {
         marginTop: 48,
         background: '#fff',
         borderRadius: 24,
-        boxShadow: '0 2px 8px #10b98122',
+        boxShadow: '0 2px 12px #bbb8a9',
         padding: '2rem 1.5rem',
         maxWidth: 420,
         width: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
       }}>
-        <h2 style={{ color: '#10b981', fontWeight: 700, fontSize: 22, marginBottom: 16 }}>Shopping Basket</h2>
+        <h2 style={{ color: '#222', fontWeight: 700, fontSize: 22, marginBottom: 16, textAlign: 'center' }}>Shopping Basket</h2>
         {cart.length === 0 ? (
-          <div style={{ color: '#888', fontSize: 16 }}>Your basket is empty.</div>
+          <div style={{ color: '#888', fontSize: 16, textAlign: 'center' }}>Your basket is empty.</div>
         ) : (
           <>
-            <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+            <ul style={{ listStyle: 'none', padding: 0, margin: 0, width: '100%' }}>
               {cart.map((item: Product) => (
                 <li key={item.id} style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>
                   <Image src={item.image} alt={item.name} width={40} height={40} style={{ borderRadius: 8 }} />
@@ -155,26 +161,26 @@ export default function ShopPage() {
                   />
                   <button
                     onClick={() => removeFromCart(item.id)}
-                    style={{ background: '#10b981', color: '#fff', border: 'none', borderRadius: 8, padding: '4px 10px', cursor: 'pointer', fontWeight: 600 }}
+                    style={{ background: '#e0e0db', color: '#222', border: 'none', borderRadius: 8, padding: '4px 10px', cursor: 'pointer', fontWeight: 600 }}
                   >
                     ×
                   </button>
                 </li>
               ))}
             </ul>
-            <div style={{ fontWeight: 600, fontSize: 18, marginTop: 16, color: '#10b981' }}>Total: €{total}</div>
+            <div style={{ fontWeight: 600, fontSize: 18, marginTop: 16, color: '#222', textAlign: 'center' }}>Total: €{total}</div>
             <button
               onClick={clearCart}
-              style={{ marginTop: 16, background: '#d1fae5', color: '#111', border: 'none', borderRadius: 16, padding: '0.5rem 1.5rem', fontWeight: 600, fontSize: 16, cursor: 'pointer' }}
+              style={{ marginTop: 16, background: '#f8f8f5', color: '#111', border: 'none', borderRadius: 16, padding: '0.5rem 1.5rem', fontWeight: 600, fontSize: 16, cursor: 'pointer' }}
             >
               Clear Basket
             </button>
             <hr style={{ margin: '24px 0', border: 0, borderTop: '1px solid #eee' }} />
-            <form onSubmit={e => { e.preventDefault(); alert('Thank you for your order! (Demo only)'); clearCart(); }}>
+            <form onSubmit={e => { e.preventDefault(); alert('Thank you for your order! (Demo only)'); clearCart(); }} style={{ width: '100%' }}>
               <input type="text" placeholder="Name" required style={{ width: '100%', marginBottom: 8, padding: 8, borderRadius: 8, border: '1px solid #eee' }} />
               <input type="email" placeholder="Email" required style={{ width: '100%', marginBottom: 8, padding: 8, borderRadius: 8, border: '1px solid #eee' }} />
               <input type="text" placeholder="Address" required style={{ width: '100%', marginBottom: 8, padding: 8, borderRadius: 8, border: '1px solid #eee' }} />
-              <button type="submit" style={{ width: '100%', background: '#10b981', color: '#fff', border: 'none', borderRadius: 16, padding: '0.75rem', fontWeight: 700, fontSize: 18, marginTop: 8, cursor: 'pointer' }}>Checkout</button>
+              <button type="submit" style={{ width: '100%', background: '#e0e0db', color: '#222', border: 'none', borderRadius: 16, padding: '0.75rem', fontWeight: 700, fontSize: 18, marginTop: 8, cursor: 'pointer' }}>Checkout</button>
             </form>
           </>
         )}

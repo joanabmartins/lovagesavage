@@ -1,22 +1,37 @@
 // MainLayout: reusable layout for all main pages
 import React from "react";
 
-export default function MainLayout({ children }: { children: React.ReactNode }) {
+type MainLayoutProps = {
+  children: React.ReactNode;
+  backgroundImage?: string;
+};
+
+export default function MainLayout({ children, backgroundImage }: MainLayoutProps) {
   return (
-    <main
+    <div
       style={{
-        minHeight: '80vh',
-        maxWidth: 900,
-        margin: '0 auto',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'flex-start',
-        padding: '4rem 1.5rem 2rem 1.5rem',
-        background: 'linear-gradient(120deg, #f8fafc 0%, #d1fae5 100%)',
+        minHeight: '100vh',
+        minWidth: '100vw',
+        position: 'relative',
+        overflow: 'hidden',
+        background: backgroundImage ? undefined : '#f8f8f5',
       }}
     >
-      {children}
-    </main>
+      {backgroundImage && (
+        <div
+          style={{
+            position: 'fixed',
+            inset: 0,
+            width: '100vw',
+            height: '100vh',
+            zIndex: 0,
+            background: `center/cover no-repeat url(${backgroundImage})`,
+          }}
+        />
+      )}
+      <div style={{ position: 'relative', zIndex: 1 }}>
+        {children}
+      </div>
+    </div>
   );
 }

@@ -30,7 +30,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         style={{
           minHeight: '100vh',
-          background: 'linear-gradient(120deg, #f8fafc 0%, #d1fae5 100%)',
+          background: '#f8f8f5',
         }}
       >
         <CartProvider>

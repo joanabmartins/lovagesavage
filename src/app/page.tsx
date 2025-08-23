@@ -1,19 +1,42 @@
 
-import MainLayout from "../components/Shared/MainLayout";
-import Hero from "../components/Home/Hero";
-import Features from "../components/Home/Features";
+"use client";
+
+
+
+
+import { useEffect } from "react";
 
 export default function Home() {
+  useEffect(() => {
+    const original = document.body.style.background;
+  document.body.style.background = 'center/cover no-repeat url(/home.png), #f8f8f5';
+    return () => { document.body.style.background = original; };
+  }, []);
+
   return (
-    <MainLayout>
-      <Hero />
-      <Features />
-      <section style={{ maxWidth: 600, textAlign: 'center', margin: '0 auto', color: '#222' }}>
-        <h2 style={{ fontSize: '1.3rem', fontWeight: 400, marginBottom: 12, letterSpacing: '0.01em' }}>Meet the Artist</h2>
-        <p style={{ color: '#444', fontSize: '1.08rem', lineHeight: 1.6 }}>
-          Afonso is a passionate artist blending tradition and modernity. <a href="/about" style={{ color: '#111', fontWeight: 500, textDecoration: 'underline' }}>Read more</a>
-        </p>
-      </section>
-    </MainLayout>
+    <section style={{
+      minHeight: '100vh',
+      width: '100vw',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      textAlign: 'center',
+      background: 'transparent',
+      margin: 0,
+      padding: 0,
+    }}>
+      <h1 style={{
+        fontSize: '2.8rem',
+        fontWeight: 400,
+        letterSpacing: '-1px',
+        color: '#222',
+        background: 'rgba(255,255,255,0.7)',
+        borderRadius: 16,
+        padding: '2rem 3rem',
+        boxShadow: '0 2px 16px #0002',
+      }}>
+        Welcome to Afonso's Art World
+      </h1>
+    </section>
   );
 }

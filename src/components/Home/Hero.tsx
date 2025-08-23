@@ -11,13 +11,13 @@ export default function Hero() {
         marginTop: 16,
         padding: '0.75rem 2.5rem',
         borderRadius: 32,
-        background: '#10b981',
-        color: '#fff',
+        background: '#e0e0db',
+        color: '#222',
         fontWeight: 500,
         fontSize: '1.1rem',
         textDecoration: 'none',
         letterSpacing: '0.02em',
-        boxShadow: '0 2px 8px #10b98122',
+        boxShadow: '0 2px 8px #bbb8a9',
         transition: 'background 0.2s',
       }}>Shop</a>
     </section>
