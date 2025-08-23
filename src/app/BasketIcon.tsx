@@ -1,8 +1,10 @@
 import { useCart } from "../components/Shared/CartContext";
 
+type CartItem = { qty?: number };
+
 export default function BasketIcon({ onClick }: { onClick: () => void }) {
   const { cart } = useCart();
-  const count = cart.reduce((sum: number, item: any) => sum + (item.qty || 1), 0);
+  const count = cart.reduce((sum: number, item: CartItem) => sum + (item.qty || 1), 0);
   return (
     <button
       onClick={onClick}

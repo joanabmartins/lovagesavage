@@ -2,9 +2,10 @@
 import { useCart } from "./CartContext";
 import Image from "next/image";
 
+type CartItem = { id: number; name: string; price: number; image: string; qty?: number };
 export default function BasketModal({ open, onClose }: { open: boolean; onClose: () => void }) {
 	const { cart, removeFromCart, changeQty, clearCart } = useCart();
-	const total = cart.reduce((sum: number, item: any) => sum + item.price * (item.qty || 1), 0);
+	const total = cart.reduce((sum: number, item: CartItem) => sum + item.price * (item.qty || 1), 0);
 	if (!open) return null;
 	return (
 		<div style={{
@@ -27,8 +28,8 @@ export default function BasketModal({ open, onClose }: { open: boolean; onClose:
 				) : (
 					<>
 						<ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-							{cart.map((item: any) => (
-								<li key={item.id} style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>
+									{cart.map((item: CartItem) => (
+										<li key={item.id} style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>
 									<Image src={item.image} alt={item.name} width={40} height={40} style={{ borderRadius: 8 }} />
 									<div style={{ flex: 1 }}>
 										<div style={{ fontWeight: 500 }}>{item.name}</div>

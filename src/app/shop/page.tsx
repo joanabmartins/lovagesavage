@@ -10,7 +10,7 @@ const products = [
     price: 40,
   image: "/shop/tote.png",
     type: "art",
-    description: "High-quality print of 'Dreamscape'. Size: 30x40cm."
+  description: "High-quality print of &apos;Dreamscape&apos;. Size: 30x40cm."
   },
   {
     id: 2,
@@ -18,7 +18,7 @@ const products = [
     price: 35,
   image: "/shop/tote.png",
     type: "art",
-    description: "Print of 'Urban Flow'. Size: 30x40cm."
+  description: "Print of &apos;Urban Flow&apos;. Size: 30x40cm."
   },
   {
     id: 3,
@@ -26,7 +26,7 @@ const products = [
     price: 38,
   image: "/shop/tote.png",
     type: "art",
-    description: "Print of 'Night Lights'. Size: 30x40cm."
+  description: "Print of &apos;Night Lights&apos;. Size: 30x40cm."
   },
   {
     id: 4,
@@ -34,7 +34,7 @@ const products = [
     price: 22,
   image: "/shop/tote.png",
     type: "tote",
-    description: "Eco-friendly tote bag with 'Dreamscape' print."
+  description: "Eco-friendly tote bag with &apos;Dreamscape&apos; print."
   },
   {
     id: 5,
@@ -42,7 +42,7 @@ const products = [
     price: 22,
   image: "/shop/tote.png",
     type: "tote",
-    description: "Eco-friendly tote bag with 'Urban Flow' print."
+  description: "Eco-friendly tote bag with &apos;Urban Flow&apos; print."
   },
 ];
 
@@ -78,7 +78,7 @@ export default function ShopPage() {
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
         <h1 style={{ fontSize: '2.2rem', fontWeight: 400, color: '#111', marginBottom: 18, letterSpacing: '-1px', textAlign: 'center' }}>Shop</h1>
         <p style={{ maxWidth: 600, fontSize: '1.15rem', color: '#444', textAlign: 'center', marginBottom: 40, lineHeight: 1.6 }}>
-          Shop for art prints and eco-friendly tote bags featuring Afonso's unique drawings.
+          Shop for art prints and eco-friendly tote bags.
         </p>
         <div style={{
           display: 'grid',

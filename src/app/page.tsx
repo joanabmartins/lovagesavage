@@ -25,18 +25,6 @@ export default function Home() {
       margin: 0,
       padding: 0,
     }}>
-      <h1 style={{
-        fontSize: '2.8rem',
-        fontWeight: 400,
-        letterSpacing: '-1px',
-        color: '#222',
-        background: 'rgba(255,255,255,0.7)',
-        borderRadius: 16,
-        padding: '2rem 3rem',
-        boxShadow: '0 2px 16px #0002',
-      }}>
-        Welcome to Afonso's Art World
-      </h1>
     </section>
   );
 }
