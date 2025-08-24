@@ -1,6 +1,6 @@
 
 "use client";
-import MainLayout from "../components/Shared/MainLayout";
+import MainLayout from "../components/Shared/UI/MainLayout";
 
 export default function Home() {
   return (

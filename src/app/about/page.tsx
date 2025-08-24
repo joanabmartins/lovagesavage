@@ -1,5 +1,5 @@
 import Image from "next/image";
-import MainLayout from "../../components/Shared/MainLayout";
+import MainLayout from "../../components/Shared/UI/MainLayout";
 import styles from "./about.module.css";
 
 export default function AboutPage() {

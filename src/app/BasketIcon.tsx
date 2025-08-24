@@ -1,4 +1,4 @@
-import { useCart } from "../components/Shared/CartContext";
+import { useCart } from "../components/Shared/context/CartContext";
 
 type CartItem = { qty?: number };
 

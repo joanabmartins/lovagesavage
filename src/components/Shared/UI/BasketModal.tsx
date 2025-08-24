@@ -1,5 +1,5 @@
 "use client";
-import { useCart } from "./CartContext";
+import { useCart } from "../context/CartContext";
 import Image from "next/image";
 
 type CartItem = { id: number; name: string; price: number; image: string; qty?: number };

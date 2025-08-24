@@ -1,11 +1,9 @@
+
 "use client";
-
-
-import BasketIcon from "../../app/BasketIcon";
+import BasketIcon from "../../../app/BasketIcon";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./navbar.module.css";
-
 
 type NavbarProps = {
 	onBasketClick: () => void;
@@ -17,16 +15,16 @@ export default function Navbar({ onBasketClick, color = '#222' }: NavbarProps) {
 		<nav style={{ display: 'flex', alignItems: 'center', padding: '1rem', marginBottom: '2rem', position: 'relative', color }}>
 			{/* Logo left */}
 			<div style={{ display: 'flex', alignItems: 'center' }}>
-							<Link href="/" style={{ display: 'flex', alignItems: 'center', height: 56 }} aria-label="Home22">
-								<Image 
-									src="/logo.png" 
-									alt="Logo" 
-									width={56} 
-									height={56} 
-									className={styles.logo}
-									priority 
-								/>
-							</Link>
+				<Link href="/" style={{ display: 'flex', alignItems: 'center', height: 56 }} aria-label="Home22">
+					<Image 
+						src="/logo.png" 
+						alt="Logo" 
+						width={56} 
+						height={56} 
+						className={styles.logo}
+						priority 
+					/>
+				</Link>
 			</div>
 			{/* Links right */}
 			<div style={{ display: 'flex', gap: '2rem', alignItems: 'center', marginLeft: 'auto' }}>

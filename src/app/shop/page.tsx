@@ -2,8 +2,8 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
-import { useCart } from "../../components/Shared/CartContext";
-import MainLayout from "../../components/Shared/MainLayout";
+import { useCart } from "../../components/Shared/context/CartContext";
+import MainLayout from "../../components/Shared/UI/MainLayout";
 
 const products = [
   {
@@ -78,9 +78,12 @@ export default function ShopPage() {
           background: 'transparent',
         }}
       >
+        <h1 style={{ fontSize: '2.3rem', fontWeight: 600, color: '#1a3d2c', marginBottom: 24, letterSpacing: '-1px', lineHeight: 1.1 }}>
+          Shop
+        </h1>
         {/* ...existing code... */}
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
-          <h1 style={{ fontSize: '2.2rem', fontWeight: 400, color: '#111', marginBottom: 18, letterSpacing: '-1px', textAlign: 'center' }}>Shop</h1>
+    {/* Removed duplicate Shop title */}
           <p style={{ maxWidth: 600, fontSize: '1.15rem', color: '#444', textAlign: 'center', marginBottom: 40, lineHeight: 1.6 }}>
             Shop for art prints and eco-friendly tote bags.
           </p>

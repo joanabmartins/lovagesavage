@@ -2,7 +2,6 @@
 import { useState } from "react";
 import Navbar from "./Navbar";
 import BasketModal from "./BasketModal";
-
 import { usePathname } from "next/navigation";
 
 export default function LayoutClient({ children }: { children: React.ReactNode }) {
