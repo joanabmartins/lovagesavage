@@ -16,7 +16,19 @@ export default function Navbar({ onBasketClick, color = '#222' }: NavbarProps) {
 			{/* Logo left */}
 			<div style={{ display: 'flex', alignItems: 'center' }}>
 							<Link href="/" style={{ display: 'flex', alignItems: 'center', height: 56 }} aria-label="Home22">
-								<Image src="/logo.png" alt="Logo" width={56} height={56} style={{ objectFit: 'contain', height: 56, width: 56 }} priority />
+								<Image 
+									src="/logo.png" 
+									alt="Logo" 
+									width={56} 
+									height={56} 
+									style={{ 
+										objectFit: 'contain', 
+										height: 56, 
+										width: 56, 
+										filter: 'invert(32%) sepia(77%) saturate(469%) hue-rotate(77deg) brightness(70%) contrast(80%)',
+									}} 
+									priority 
+								/>
 							</Link>
 			</div>
 			{/* Links right */}
