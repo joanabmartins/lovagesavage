@@ -1,8 +1,10 @@
 "use client";
 
+
 import BasketIcon from "../../app/BasketIcon";
 import Image from "next/image";
 import Link from "next/link";
+import styles from "./navbar.module.css";
 
 
 type NavbarProps = {
@@ -21,12 +23,7 @@ export default function Navbar({ onBasketClick, color = '#222' }: NavbarProps) {
 									alt="Logo" 
 									width={56} 
 									height={56} 
-									style={{ 
-										objectFit: 'contain', 
-										height: 56, 
-										width: 56, 
-										filter: 'invert(32%) sepia(77%) saturate(469%) hue-rotate(77deg) brightness(70%) contrast(80%)',
-									}} 
+									className={styles.logo}
 									priority 
 								/>
 							</Link>
