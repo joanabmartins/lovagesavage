@@ -18,4 +18,3 @@ export default function LayoutClient({ children }: { children: React.ReactNode }
 		</>
 	);
 }
-[empty]
