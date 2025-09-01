@@ -24,7 +24,7 @@ const BasketModal: React.FC<BasketModalProps> = ({ isOpen, onClose }) => {
             {cart.map((item: CartItem) => (
               <li key={item.id} className={styles.cartItem}>
                 <span>{item.name}</span>
-                <span>Qty: {item.quantity}</span>
+                <span>Qty: {item.qty}</span>
                 <button onClick={() => removeFromCart(item.id)}>Remove</button>
               </li>
             ))}
