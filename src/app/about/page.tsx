@@ -1,6 +1,7 @@
 import Image from "next/image";
 import MainLayout from "../../components/Shared/UI/MainLayout";
 import styles from "./about.module.css";
+import AboutGallery from "./aboutgallery";
 
 export default function AboutPage() {
   return (
@@ -32,6 +33,7 @@ export default function AboutPage() {
           </p>
         </div>
       </div>
+      <AboutGallery />
     </MainLayout>
   );
 }

@@ -4,7 +4,7 @@ import MainLayout from "../components/Shared/UI/MainLayout";
 
 export default function Home() {
   return (
-    <MainLayout backgroundImage="/home.png">
+    <MainLayout backgroundImage="/home.jpeg">
       <section style={{
         minHeight: '100vh',
         width: '100vw',
