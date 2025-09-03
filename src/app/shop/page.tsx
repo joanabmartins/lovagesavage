@@ -182,93 +182,138 @@ export default function ShopPage() {
         </div>
 
         {/* Expanded Modal with Carousel */}
-        {expanded && (
-          <div
-            style={{
-              position: "fixed",
-              top: 0,
-              left: 0,
-              width: "100vw",
-              height: "100vh",
-              background: "rgba(0,0,0,0.85)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              zIndex: 1000,
-            }}
-            onClick={() => setExpanded(null)}
-          >
-            <div
-              style={{ position: "relative", maxWidth: "90vw", maxHeight: "90vh" }}
-              onClick={(e) => e.stopPropagation()}
-            >
-              <Carousel
-                showThumbs={false}
-                showStatus={false}
-                infiniteLoop
-                emulateTouch
-                swipeable
-                dynamicHeight={false}
-                autoPlay={false}
-                selectedItem={expanded.index}
-              >
-                {expanded.product.images.map((img, idx) => (
-                  <div
-                    key={idx}
-                    style={{
-                      width: 700,
-                      height: 700,
-                      borderRadius: 16,
-                      background: "#fafafa",
-                      overflow: "hidden",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      margin: "0 auto",
-                    }}
-                  >
-                    <Image
-                      src={img}
-                      alt={expanded.product.name}
-                      width={700}
-                      height={700}
-                      style={{
-                        objectFit: "contain",
-                        width: "100%",
-                        height: "100%",
-                        borderRadius: 16,
-                        background: "#fafafa",
-                        display: "block",
-                      }}
-                    />
-                  </div>
-                ))}
-              </Carousel>
-              <button
-                onClick={() => setExpanded(null)}
-                style={{
-                  position: "absolute",
-                  top: 8,
-                  right: 8,
-                  background: "rgba(0,0,0,0.6)",
-                  color: "#fff",
-                  border: "none",
-                  borderRadius: "50%",
-                  width: 36,
-                  height: 36,
-                  fontSize: 22,
-                  cursor: "pointer",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-                aria-label="Close expanded image"
-              >
-                &times;
-              </button>
-            </div>
-          </div>
-        )}
+
+{expanded && (
+  <div
+    style={{
+      position: "fixed",
+      top: 0,
+      left: 0,
+      width: "100vw",
+      height: "100vh",
+      background: "rgba(0,0,0,0.85)",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      zIndex: 1000,
+    }}
+    onClick={() => setExpanded(null)}
+  >
+    <div
+      style={{
+        position: "relative",
+        maxWidth: "90vw",
+        maxHeight: "90vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+      onClick={e => e.stopPropagation()}
+    >
+      {/* Left arrow */}
+      <button
+        onClick={e => {
+          e.stopPropagation();
+          setExpanded(exp => exp
+            ? {
+                product: exp.product,
+                index: (exp.index - 1 + exp.product.images.length) % exp.product.images.length
+              }
+            : exp
+          );
+        }}
+        style={{
+          position: "absolute",
+          left: -50,
+          top: "50%",
+          transform: "translateY(-50%)",
+          background: "rgba(0,0,0,0.5)",
+          color: "#fff",
+          border: "none",
+          borderRadius: "50%",
+          width: 40,
+          height: 40,
+          fontSize: 24,
+          cursor: "pointer",
+          zIndex: 2,
+        }}
+        aria-label="Previous image"
+      >
+        &#8592;
+      </button>
+      {/* Image */}
+      <Image
+        src={expanded.product.images[expanded.index]}
+        alt={expanded.product.name}
+        width={800}
+        height={800}
+        style={{
+          borderRadius: 16,
+          objectFit: "contain",
+          background: "#fafafa",
+          maxWidth: "90vw",
+          maxHeight: "80vh",
+          display: "block",
+        }}
+      />
+      {/* Right arrow */}
+      <button
+        onClick={e => {
+          e.stopPropagation();
+          setExpanded(exp => exp
+            ? {
+                product: exp.product,
+                index: (exp.index + 1) % exp.product.images.length
+              }
+            : exp
+          );
+        }}
+        style={{
+          position: "absolute",
+          right: -50,
+          top: "50%",
+          transform: "translateY(-50%)",
+          background: "rgba(0,0,0,0.5)",
+          color: "#fff",
+          border: "none",
+          borderRadius: "50%",
+          width: 40,
+          height: 40,
+          fontSize: 24,
+          cursor: "pointer",
+          zIndex: 2,
+        }}
+        aria-label="Next image"
+      >
+        &#8594;
+      </button>
+      {/* Close button */}
+      <button
+        onClick={() => setExpanded(null)}
+        style={{
+          position: "absolute",
+          top: 8,
+          right: 8,
+          background: "rgba(0,0,0,0.6)",
+          color: "#fff",
+          border: "none",
+          borderRadius: "50%",
+          width: 36,
+          height: 36,
+          fontSize: 22,
+          cursor: "pointer",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+        aria-label="Close image"
+      >
+        &times;
+      </button>
+    </div>
+  </div>
+)}
+    
 
         {/* Basket */}
         <section
